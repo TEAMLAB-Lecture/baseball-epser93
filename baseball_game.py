@@ -273,16 +273,18 @@ def main():
             print("Wrong Input, Input again")
             continue
         result = get_strikes_or_ball(user_input, random_number)
-        print(f"Strikes : {result[0]} , Balls  {result[1]}")
+        print(f"Strikes : {result[0]} , Balls : {result[1]}")
         if result[0] != 3:
             continue
         while 1:
             is_continue = input("You win, one more(Y/N)?")
+            if is_continue == '0':
+                break
             if not is_no(is_continue) and not is_yes(is_continue):
                 print("Wrong Input, Input again")
                 continue
             break
-        if is_no(is_continue):
+        if is_no(is_continue) or is_continue == '0':
             break
         random_number = str(get_not_duplicated_three_digit_number())
         print("Random Number is : ", random_number)
